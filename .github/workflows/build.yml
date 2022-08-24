@@ -21,6 +21,11 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn -B package --file pom.xml
+      - name: Maven build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: config-server.jar
+          path: target/config-server.jar
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
